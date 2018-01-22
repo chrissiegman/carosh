@@ -1,6 +1,7 @@
 <?php
 
 // TODO Add a few unit tests!!!
+// Update to work properly in browser! $argv causes error here...
 
 // Default string to transform
 $subject = "This is the default string.";
