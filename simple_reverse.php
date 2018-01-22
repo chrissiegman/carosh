@@ -6,12 +6,16 @@
 // Default string to transform
 $subject = "This is the default string.";
 
-// Allows a different string to be passed in via command line
-if (array_key_exists(1, $argv)) {
-	$subject = $argv[1];
+if (php_sapi_name() == "cli") {
+	// Allows a different string to be passed in via command line
+    if (array_key_exists(1, $argv)) {
+		$subject = $argv[1];
+	}
+} else {
+	// TODO add support for a form w/ user input here...
 }
 
-var_dump(reverse_string($subject));
+echo(reverse_string($subject) . PHP_EOL);
 
 function reverse_string($subject)
 {
@@ -36,5 +40,3 @@ function get_punctuation($subject)
 	$result['punctuation'] = $punctuation;
 	return $result;
 }
-
-?>
