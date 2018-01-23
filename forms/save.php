@@ -27,7 +27,8 @@ $paramsArray = ['last_name' => $last_name, 'first_name' => $first_name];
 $stmt->execute($paramsArray);
 $person = $stmt->fetch();
 
-// Check for existence of first_name/last_name combination, if it doesn't exist, insert it.
+// Check for existence of first_name/last_name combination, if it doesn't exist, insert it. Otherwise, let the
+// user know that the person already exists!
 if ($person) {
 	echo "Looks like you're already in the database! Welcome back!<br><br>";
 } else {

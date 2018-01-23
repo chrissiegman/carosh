@@ -1,22 +1,18 @@
 <?php
 
-// TODO Add a few unit tests!!!
-// Update to work properly in browser! $argv causes error here...
-
 // Default string to transform
 $subject = "This is the default string.";
 
-if (php_sapi_name() == "cli") {
-	// Allows a different string to be passed in via command line
+// Allows a different string to be passed in via command line argument
+if (php_sapi_name() == "cli") {	
     if (array_key_exists(1, $argv)) {
 		$subject = $argv[1];
 	}
-} else {
-	// TODO add support for a form w/ user input here...
 }
 
-echo(reverse_string($subject) . PHP_EOL);
+echo(reverse_string($subject));
 
+// Calls punctuation helper function, reverses word order
 function reverse_string($subject)
 {
 	$split = get_punctuation($subject);
@@ -26,6 +22,9 @@ function reverse_string($subject)
 	return $result;
 }
 
+// Looks for end of sentence punctuation.
+// Returns an array containing the trimmed string, along
+// with the end of sentence punctuation, where applicable.
 function get_punctuation($subject)
 {
 	$punctuation = "";
